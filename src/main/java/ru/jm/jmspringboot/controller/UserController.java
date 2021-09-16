@@ -39,7 +39,6 @@ public class UserController {
 
 	@PatchMapping(value = "/user/{id}")
 	public String updateUserProfile(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-		System.out.println("change user");
 		userService.updateUserShort(id, user);
 		return "redirect:/user";
 	}
@@ -97,7 +96,6 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-		System.out.println("GET");
 		return "login";
     }
 
@@ -107,7 +105,7 @@ public class UserController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 		if ( auth.getName().indexOf("anonymousUser") == -1) {
-			System.out.println("!"	+ auth.getName() );
+
 			User user = userService.getUser(auth.getName());
 			user.emptyPassword();
 			model.addAttribute("user", user);

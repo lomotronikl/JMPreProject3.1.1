@@ -139,11 +139,9 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        System.out.println("!!!!!");
         User user = dao.findByUsername(s);
-        System.out.println("1 "+user.toString());
         if (user == null) {
-            System.out.println("User not found");
+
             throw new UsernameNotFoundException("User not found");
         }
         System.out.println(user.getUsername());

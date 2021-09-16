@@ -57,7 +57,6 @@ public class UserDaoHibernateImpl  implements UserDao {
 
     @Override
     public User findByUsername(String userName) {
-        System.out.println("findByUserName");
         try {
             Query query = entityManager.createQuery("select u from User u where u.username = :userName", User.class);
             query.setParameter("userName", userName);
