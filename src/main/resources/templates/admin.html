@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<div align="right">
+<a href="user">Профиль</a>  <a th:href="@{/logout}">Выйти</a></div>
+<p></p>
+<table align = "center">
+    <tr align="center"><td>Имя</td><td>Фамилия</td><td>Логин</td><td>Admin</td><td>User</td></tr>
+    <th:block th:each="user : ${users}">
+        <tr align="center">
+            <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getName()}">name</a></td>
+            <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getLastName()}">lastName</a></td>
+            <td><a th:href="@{/admin/{id}(id=${user.getId()})}" th:text="${user.getUsername()}">age</a></td>
+            <td><span th:text="${user.isRoleAdmin()}"></span></td>
+            <td><span th:text="${user.isRoleUser()}"></span></td>
+        </tr>
+    </th:block>
+
+
+    <tr>
+        <p></p>
+    <td> <a href="admin/createuser">Создание нового пользователя</a> </td>
+
+    </tr>
+
+</table>
+
+</body>
+</html>

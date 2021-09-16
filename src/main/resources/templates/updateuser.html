@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактируем</title>
+</head>
+<body>
+<h2>Редактируем</h2>
+<div align="right">
+    <a th:href="@{/logout}">Выйти</a>
+</div>
+<p></p>
+<table>
+   <form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
+
+           <tr><td>Имя</td><td><input type="text" th:field="*{name}" id="name"/></td></tr>
+           <tr><td>Фамиия</td><td><input type="text" th:field="*{lastName}" id="lastName"/></td></tr>
+           <tr><td>Логин</td><td><input type="text" th:field="*{username}" id="username"/></td></tr>
+           <tr><td>Пароль</td><td><input type="text" th:field="*{password}" id="password"/></td></tr>
+           <tr><td>роль ADMIN</td><td><input type="checkbox" th:field="*{roleAdmin}" id="roleAdmin"/></td></tr>
+           <tr><td>роль USER</td><td><input type="checkbox" th:field="*{roleUser}" id="roleUser"/></td></tr>
+           <tr>
+               <td><input type = "submit" value="Изменить"></td>
+           </tr>
+   </form>
+    <tr><td>
+    <form th:method="DELETE" th:action="@{/admin/{id}(id=${user.getId()})}">
+       <input type = "submit" value="Удалить">
+   </form></td></tr>
+    <tr>
+        <td> <a href="../admin">назад</a> </td>
+
+    </tr>
+
+       </table>
+
+
+
+
+</body>
+</html>

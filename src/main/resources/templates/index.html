@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body>
+
+<a href="login">Войти</a>
+<a th:href="@{/logout}">Выйти</a>
+<a href="admin">Админка</a>
+<a href="user">Профиль</a>
+<p>
+<span th:text="${message}">
+</span>
+
+
+
+</body>
+</html>
